@@ -224,17 +224,17 @@ export default {
       this.$refs.streamProxy.resetFields();
     },
     deviceGBIdExit: async function (deviceGbId) {
-      var result = false;
+      var map = false;
       var that = this;
       await that.$axios({
         method: 'post',
         url:`/api/platform/exit/${deviceGbId}`
       }).then(function (res) {
-        result = res.data;
+        map = res.data;
       }).catch(function (error) {
         console.log(error);
       });
-      return result;
+      return map;
     },
     checkExpires: function() {
       if (this.platform.enable && this.platform.expires == "0") {

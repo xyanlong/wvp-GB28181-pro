@@ -28,7 +28,7 @@
                   <el-button type="primary" @click="onSubmit">保存</el-button>
                   <el-button @click="close">取消</el-button>
                 </div>
-                
+
               </el-form-item>
             </el-form>
       </div>
@@ -69,7 +69,7 @@ export default {
           stream: null,
           gbId: null,
       },
-      
+
       rules: {
         name: [{ required: true, message: "请输入名称", trigger: "blur" }],
         app: [{ required: true, message: "请输入应用名", trigger: "blur" }],
@@ -84,14 +84,14 @@ export default {
       this.listChangeCallback = callback;
       if (proxyParam != null) {
         this.proxyParam = proxyParam;
-      } 
+      }
     },
     onSubmit: function () {
       console.log("onSubmit");
       var that = this;
       that.$axios({
         method:"post",
-        url:`/api/push/save_to_gb`, 
+        url:`/api/push/save_to_gb`,
         data: that.proxyParam
       }).then(function (res) {
           if (res.data == "success") {
@@ -115,17 +115,17 @@ export default {
       this.$refs.streamProxy.resetFields();
     },
     deviceGBIdExit: async function (deviceGbId) {
-      var result = false;
+      var map = false;
       var that = this;
       await that.$axios({
         method:"post",
         url:`/api/platform/exit/${deviceGbId}`
       }).then(function (res) {
-        result = res.data;
+        map = res.data;
       }).catch(function (error) {
         console.log(error);
       });
-      return result;
+      return map;
     },
     checkExpires: function() {
       if (this.platform.enable && this.platform.expires == "0") {

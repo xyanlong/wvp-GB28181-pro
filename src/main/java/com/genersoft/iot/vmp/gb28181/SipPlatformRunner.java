@@ -1,4 +1,4 @@
-package com.genersoft.iot.vmp.conf;
+package com.genersoft.iot.vmp.gb28181;
 
 import com.genersoft.iot.vmp.gb28181.bean.ParentPlatform;
 import com.genersoft.iot.vmp.gb28181.bean.ParentPlatformCatch;

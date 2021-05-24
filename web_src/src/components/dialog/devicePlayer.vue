@@ -13,7 +13,7 @@
                         <!--		 <el-button type="primary" size="small" @click="stopRecord()">停止录制</el-button>-->
                     </div>
                     <div style="display: flex; margin-bottom: 0.5rem; height: 2.5rem;">
-                        <span style="width: 5rem; line-height: 2.5rem; text-align: right;">播放地址：</span>
+                        <span style="width: 8rem; line-height: 2.5rem; text-align: right;">播放地址：</span>
                         <el-input v-model="getPlayerShared.sharedUrl" :disabled="true" >
                           <template slot="append">
                             <i class="cpoy-btn el-icon-document-copy"  title="点击拷贝" v-clipboard="getPlayerShared.sharedUrl" @success="$message({type:'success', message:'成功拷贝到粘贴板'})"></i>
@@ -21,7 +21,7 @@
                         </el-input>
                     </div>
                     <div style="display: flex; margin-bottom: 0.5rem; height: 2.5rem;">
-                        <span style="width: 5rem; line-height: 2.5rem; text-align: right;">iframe：</span>
+                        <span style="width: 8rem; line-height: 2.5rem; text-align: right;">iframe：</span>
                         <el-input v-model="getPlayerShared.sharedIframe" :disabled="true" >
                           <template slot="append">
                             <i class="cpoy-btn el-icon-document-copy"  title="点击拷贝" v-clipboard="getPlayerShared.sharedIframe" @success="$message({type:'success', message:'成功拷贝到粘贴板'})"></i>
@@ -29,13 +29,45 @@
                         </el-input>
                     </div>
                     <div style="display: flex; margin-bottom: 0.5rem; height: 2.5rem;">
-                        <span style="width: 5rem; line-height: 2.5rem; text-align: right;">资源地址：</span>
+                        <span style="width: 8rem; line-height: 2.5rem; text-align: right;">资源地址(ws)：</span>
                         <el-input v-model="getPlayerShared.sharedRtmp" :disabled="true" >
                           <template slot="append">
                             <i class="cpoy-btn el-icon-document-copy"  title="点击拷贝" v-clipboard="getPlayerShared.sharedRtmp" @success="$message({type:'success', message:'成功拷贝到粘贴板'})"></i>
                           </template>
                         </el-input>
                     </div>
+                  <div style="display: flex; margin-bottom: 0.5rem; height: 2.5rem;">
+                    <span style="width: 8rem; line-height: 2.5rem; text-align: right;">资源地址(flv)：</span>
+                    <el-input v-model="getPlayerShared.sharedRtmp1" :disabled="true" >
+                      <template slot="append">
+                        <i class="cpoy-btn el-icon-document-copy"  title="点击拷贝" v-clipboard="getPlayerShared.sharedRtmp1" @success="$message({type:'success', message:'成功拷贝到粘贴板'})"></i>
+                      </template>
+                    </el-input>
+                  </div>
+                  <div style="display: flex; margin-bottom: 0.5rem; height: 2.5rem;">
+                    <span style="width: 8rem; line-height: 2.5rem; text-align: right;">资源地址(hls)：</span>
+                    <el-input v-model="getPlayerShared.sharedRtmp2" :disabled="true" >
+                      <template slot="append">
+                        <i class="cpoy-btn el-icon-document-copy"  title="点击拷贝" v-clipboard="getPlayerShared.sharedRtmp2" @success="$message({type:'success', message:'成功拷贝到粘贴板'})"></i>
+                      </template>
+                    </el-input>
+                  </div>
+                  <div style="display: flex; margin-bottom: 0.5rem; height: 2.5rem;">
+                    <span style="width: 8rem; line-height: 2.5rem; text-align: right;">资源地址(rtmp)：</span>
+                    <el-input v-model="getPlayerShared.sharedRtmp3" :disabled="true" >
+                      <template slot="append">
+                        <i class="cpoy-btn el-icon-document-copy"  title="点击拷贝" v-clipboard="getPlayerShared.sharedRtmp3" @success="$message({type:'success', message:'成功拷贝到粘贴板'})"></i>
+                      </template>
+                    </el-input>
+                  </div>
+                  <div style="display: flex; margin-bottom: 0.5rem; height: 2.5rem;">
+                    <span style="width: 8rem; line-height: 2.5rem; text-align: right;">资源地址(rtsp)：</span>
+                    <el-input v-model="getPlayerShared.sharedRtmp4" :disabled="true" >
+                      <template slot="append">
+                        <i class="cpoy-btn el-icon-document-copy"  title="点击拷贝" v-clipboard="getPlayerShared.sharedRtmp4" @success="$message({type:'success', message:'成功拷贝到粘贴板'})"></i>
+                      </template>
+                    </el-input>
+                  </div>
                 </el-tab-pane>
                 <!--{"code":0,"data":{"paths":["22-29-30.mp4"],"rootPath":"/home/kkkkk/Documents/ZLMediaKit/release/linux/Debug/www/record/hls/kkkkk/2020-05-11/"}}-->
                 <el-tab-pane label="录像查询" name="record" v-if="showRrecord">
@@ -164,7 +196,11 @@ export default {
             return {
                 sharedUrl: window.location.origin + '/#/play/wasm/' + encodeURIComponent(this.videoUrl),
                 sharedIframe: '<iframe src="' + window.location.origin + '/#/play/wasm/' + encodeURIComponent(this.videoUrl) + '"></iframe>',
-                sharedRtmp: this.videoUrl
+                sharedRtmp: this.videoUrl,
+                sharedRtmp1: this.videoUrl1,
+                sharedRtmp2: this.videoUrl2,
+                sharedRtmp3: this.videoUrl3,
+                sharedRtmp4: this.videoUrl4,
             };
         }
     },
@@ -173,6 +209,10 @@ export default {
         return {
             video: 'http://lndxyj.iqilu.com/public/upload/2019/10/14/8c001ea0c09cdc59a57829dabc8010fa.mp4',
             videoUrl: '',
+            videoUrl1: '',
+            videoUrl2: '',
+            videoUrl3: '',
+            videoUrl4: '',
             videoHistory: {
                 date: '',
                 searchHistoryResult: [] //媒体流历史记录搜索结果
@@ -240,6 +280,10 @@ export default {
             this.streamId = "";
             this.app = "";
             this.videoUrl = ""
+            this.videoUrl1 = ""
+            this.videoUrl2 = ""
+            this.videoUrl3 = ""
+            this.videoUrl4 = ""
             if (!!this.$refs.videoPlayer) {
                 this.$refs.videoPlayer.pause();
             }
@@ -271,6 +315,10 @@ export default {
             this.isLoging = false;
             // this.videoUrl = streamInfo.rtc;
             this.videoUrl = streamInfo.ws_flv;
+            this.videoUrl1 = streamInfo.flv;
+            this.videoUrl2 = streamInfo.hls;
+            this.videoUrl3 = streamInfo.rtmp;
+            this.videoUrl4 = streamInfo.rtsp;
             this.streamId = streamInfo.streamId;
             this.app = streamInfo.app;
             this.playFromStreamInfo(false, streamInfo)

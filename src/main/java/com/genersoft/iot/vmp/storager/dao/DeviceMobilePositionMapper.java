@@ -4,10 +4,8 @@ import java.util.List;
 
 import com.genersoft.iot.vmp.gb28181.bean.MobilePosition;
 import org.apache.ibatis.annotations.*;
-//import org.springframework.stereotype.Repository;
 
 @Mapper
-//@Repository
 public interface DeviceMobilePositionMapper {
 
     @Insert("INSERT INTO device_mobile_position (deviceId, deviceName, time, longitude, latitude, altitude, speed, direction, reportSource, geodeticSystem, cnLng, cnLat) " +

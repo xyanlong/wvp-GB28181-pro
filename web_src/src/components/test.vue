@@ -114,16 +114,16 @@ export default {
     getDataWidth(item){
       let startTime = new Date(item.startTime);
       let endTime = new Date(item.endTime);
-      let result = parseFloat((endTime.getTime() - startTime.getTime())/(24*60*60*10))
-      // console.log(result)
+      let map = parseFloat((endTime.getTime() - startTime.getTime())/(24*60*60*10))
+      // console.log(map)
       return parseFloat((endTime.getTime() - startTime.getTime())/(24*60*60*10))
     },
     getDataLeft(item){
       let startTime = new Date(item.startTime);
       let differenceTime = startTime.getTime() - new Date(item.startTime.substr(0,10) + " 00:00:00").getTime()
-      let result = differenceTime/(24*60*60*10)
+      let map = differenceTime/(24*60*60*10)
       console.log(differenceTime)
-      console.log(result)
+      console.log(map)
       return parseFloat(differenceTime/(24*60*60*10));
     }
   }
